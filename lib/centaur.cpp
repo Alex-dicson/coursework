@@ -14,7 +14,14 @@ double Centaur::calc(int distance)
 	int quantity_rest = 0;			// сколько раз нужно отдохнуть
 	double time_rest = 0;		// сколько времени нужно на отдых
 	time_no_rest = distance / _speed;
-	quantity_rest = time_no_rest / _driving_time;
+	if (distance % _driving_time == 0)
+	{
+		quantity_rest = (time_no_rest / _driving_time) - 1;
+	}
+	else
+	{
+		quantity_rest = time_no_rest / _driving_time;
+	}
 
 	if (quantity_rest > 1)
 	{
